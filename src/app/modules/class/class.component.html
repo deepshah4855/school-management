@@ -62,7 +62,7 @@
         <div fxFlex="35">
             <mat-form-field fxFlex="90">
                 <mat-label>Select Headers</mat-label>
-                <mat-select [(ngModel)]="selectedColumns" multiple>
+                <mat-select [(ngModel)]="selectedColumns" multiple (selectionChange)=onSelectionChange($event)>
                     <mat-option *ngFor="let column of displayedColumns" [value]="column">{{column}}</mat-option>
                 </mat-select>
             </mat-form-field>

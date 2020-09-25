@@ -643,6 +643,7 @@ export class ClassComponent implements OnInit {
     'Assignment 19',
     'Assignment 20'
   ];
+
   displayAll: boolean = false;
   displayNone: boolean = false;
   selectedColumns: string[] = [];
@@ -657,9 +658,9 @@ export class ClassComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-      this.selectedColumns = this.displayedColumns;
+    this.selectedColumns = this.displayedColumns;
 
-      this.dataSource = new MatTableDataSource(this.data);
+    this.dataSource = new MatTableDataSource(this.data);
     
     this.displayColumnForm.valueChanges.subscribe(value => {
       if(value.displayAll === true) {
@@ -693,6 +694,18 @@ export class ClassComponent implements OnInit {
     if(this.displayNone === false) {
       this.displayAll = false;
       this.selectedColumns = [];
+    }
+  }
+
+  onSelectionChange = (event) => {
+    console.log(event);
+    if(this.selectedColumns.length !== this.displayedColumns.length) {
+      // this.displayColumnForm.controls['displayAll'].setValue(false, {emitEvent: false});
+      this.displayAll = false;
+    }
+    if(this.selectedColumns.length > 0) {
+      // this.displayColumnForm.controls['displayNone'].setValue(false, {emitEvent: false});
+      this.displayNone = false;
     }
   }
 

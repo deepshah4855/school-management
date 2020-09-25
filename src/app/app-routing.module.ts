@@ -16,7 +16,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'student',
+        redirectTo: 'class',
         pathMatch: 'full'
       },
       {
