@@ -1,0 +1,50 @@
+<section class="section" [style.background]="'url(assets/images/login.png)'" [style.backgroundSize]="'100% 100%'" fxFlex fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex class="user-card" fxLayout="column" fxFlex="25" fxFlex.xs="90" fxFlex.lt-lg="30">
+        <div fxFlex="35" fxLayout="column" class="card-header" fxLayoutAlign="flex-start center">
+            <img fxFlex="90" [src]="'assets/images/logo.png'">
+        </div>
+        <div [formGroup]="loginForm" fxFlex="65" class="card-body" fxLayout="column" fxLayoutAlign="space-between">
+            <div fxFlex="60" fxLayout="column" fxLayoutAlign="center">
+                <div fxLayout="row" fxFlex="50" fxLayoutAlign="center">
+                    <mat-form-field fxFlex="90" appearance="outline" hideRequiredMarker>
+                        <mat-label>Email Address</mat-label>
+                        <input matInput formControlName="email" type="email" required email>
+                        <!-- <mat-error *ngIf="loginForm.controls['email'].errors?.required">Please enter the registered email.</mat-error> -->
+                        <span class="visibility-btn" mat-icon-button matSuffix>
+                            <mat-icon>mail_outline</mat-icon>
+                        </span>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxFlex="50" fxLayoutAlign="center">
+                    <mat-form-field fxFlex="90" appearance="outline" hideRequiredMarker>
+                        <mat-label>Password</mat-label>
+                        <input matInput #password formControlName="password" type="password" autocomplete="on" required>
+                        <!-- <mat-error *ngIf="loginForm.controls['password'].errors?.required">Please enter the password.</mat-error> -->
+                        <span class="visibility-btn" mat-icon-button matSuffix>
+                            <mat-icon>lock_outline</mat-icon>
+                        </span>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxFlex="7" class="remember-me" fxLayoutAlign="flex-start flex-start">
+                <mat-checkbox>Remember me</mat-checkbox>
+            </div>
+            <div fxFlex="23" fxLayoutAlign="center center">
+                <button
+                    class="signIn-btn"
+                    type="submit"
+                    [class.grey-btn]="(this.loginForm.status === 'INVALID')"
+                    [disabled]="(this.loginForm.status === 'INVALID')"
+                    fxFlex="90"
+                    mat-button
+                    (click)="signIn()"
+                >
+                <span *ngIf="!this.isLoading">Login</span>
+                <button-loader *ngIf="this.isLoading"></button-loader>
+            </button>
+            </div>
+            <div fxFlex="4" class="forgot-password" fxLayoutAlign="center center">Forgot Password?</div>
+            <!-- <div fxFlex="7" class="error-message" fxLayoutAlign="center center">{{ errorMessage }}</div> -->
+        </div>
+    </div>
+</section>

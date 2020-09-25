@@ -1,0 +1,36 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="toolbar-div" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+                <button mat-icon-button (click)="toggleSideBar()">
+                    <mat-icon class="menu-icon">menu</mat-icon>
+                </button>
+                <span class="logo">
+                    <img [src]="'assets/images/logo-icon.png'">
+                </span>
+            </div>
+
+            <div class="person-div">
+                <ul fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+                    <li fxLayoutAlign="center">
+                        <mat-icon class="search-icon">search</mat-icon>
+                    </li>
+                    <li fxLayoutAlign="center">
+                        <img class="avatar" [src]="'assets/images/avatar.png'">
+                    </li>
+                    <li class="user-name">
+                        {{ userName }}
+                    </li>
+                    <li>
+                        <button mat-icon-button [matMenuTriggerFor]="beforeMenu">
+                            <mat-icon class="arrow-icon">keyboard_arrow_down</mat-icon>
+                        </button>
+                        <mat-menu #beforeMenu="matMenu" xPosition="before">
+                        <button mat-menu-item (click)="logOut()">Log Out</button>
+                        </mat-menu>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

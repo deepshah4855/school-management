@@ -1,0 +1,15 @@
+<div>
+
+    <app-header (toggleSideBarEvent)="sideBarToggler($event)"></app-header>
+    
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" [opened]="sideBarOpen">
+            <app-sidebar></app-sidebar>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+    
+</div>
+<!-- <app-footer></app-footer> -->

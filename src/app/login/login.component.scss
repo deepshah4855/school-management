@@ -1,0 +1,112 @@
+@import '../variables';
+
+@media screen and (max-width: 768px)
+{
+  .user-card{
+    max-width: 380px!important;
+    min-width: 320px!important;
+    padding: 0px;
+  }
+}
+
+.section {
+    height: 100vh;
+    width: 100vw;
+}
+
+.user-card{
+  height: 450px;
+  background-color: white;
+  //box-shadow: 0 6px 12px 0 rgba(73, 71, 71, 0.116);
+  border-color: black;
+  padding: 30px;
+}
+
+.card-header img{
+  height: 150%;
+  padding-bottom: 5px;
+}
+
+.main-header {
+font-size: small;
+}
+
+.sub-header {
+  color: #757575;
+  font-size: 10px;
+  margin-bottom: 10px;
+  margin-top: -5px;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+  padding: 0.8em 0px !important
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+  top: -1.1em;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.5em) scale(.78);
+    width: 133.33333%;
+}
+
+::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0px;
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-width: 1px;
+}
+
+::ng-deep .mat-checkbox-inner-container {
+  height: 11px!important;
+  width: 11px!important;
+}
+
+.remember-me {
+  color: rgba(66, 66, 66, 0.602);
+  font-size: smaller;
+  padding-left: 15px;
+  margin-bottom: 5px;
+}
+
+.signIn-btn {
+  height: 40px;
+  line-height: 40px;
+  background-color: $primary-color;
+  color: white;
+  border-radius: 3px;
+  font-size: smaller;
+  font-weight: 300;
+  text-align: center;
+}
+
+.forgot-password {
+  color: $primary-color;
+  font-size: smaller;
+  cursor: pointer;
+}
+
+.grey-btn {
+  // background-color: rgb(202, 201, 201);
+  background-color: $primary-color;
+  color: white!important;
+}
+
+.mat-icon {
+  padding-right: 5px;
+  height: 24px;
+  font-size: 24px;
+  margin-bottom:0px;
+  vertical-align: bottom;
+  color: rgba(66, 66, 66, 0.602);
+}
+
+.error-message {
+  color: red;
+  font-size: 10px;
+  text-align: center;
+  margin-top: -15px;
+  padding: 15px;
+}

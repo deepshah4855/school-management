@@ -1,0 +1,27 @@
+@import "./variables";
+
+
+.title {
+    font-size: 26px;
+    font-weight: 500;
+    color: $primary-color;
+    padding-bottom: 30px;
+}
+
+.add-button {
+    background-color: $primary-color;
+    color: white;
+    font-size: 10px;
+    font-weight: 400;
+    border-radius: 3px;
+}
+
+.button-text {
+    padding-right: 10px;
+}
+
+.add-icon {
+    font-size: 14px;
+    margin-top: 9px;
+    vertical-align: middle;
+}

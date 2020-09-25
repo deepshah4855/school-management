@@ -1,0 +1,46 @@
+<div class="sidebar-container" style="padding: 10px;">
+    <mat-nav-list *ngFor="let menuItem of menuItems">
+        <div *ngIf="!menuItem.children?.length">
+            <div *ngIf="menuItem.allowed">
+                <a mat-list-item class="{{ menuItem.class }}" routerLinkActive="active-list-item" [routerLink]="[menuItem.path]">
+                    <span class="icon-container {{ menuItem.class }}">
+                        <mat-icon class="icon" fontSet="material-icons-outlined">{{ menuItem.icon }}</mat-icon>
+                    </span>
+                    <span class="title">
+                        {{ menuItem.title }}
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div *ngIf="menuItem.children?.length">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title class="{{ menuItem.class }}">
+                            <div fxLayout="row" fxLayoutAlign="flex-start center" > 
+                                <span class="icon-container {{ menuItem.class }}">
+                                    <mat-icon class="icon" fontSet="material-icons-outlined">{{menuItem.icon}}</mat-icon>
+                                </span>
+                                <span class="title" style="padding-left: 2px;">
+                                    {{menuItem.title}}
+                                </span>
+                            </div>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <span *ngFor="let child of menuItem.children">
+                        <a mat-list-item class="{{ child.class }}" class="child-menu" routerLinkActive="active-list-item" [routerLink]="[child.path]">
+                            <div fxLayout="row" fxLayoutAlign="flex-start center"> 
+                                <span class="icon-container {{ child.class }}">
+                                    <mat-icon class="icon" fontSet="material-icons-outlined">{{child.icon}}</mat-icon>
+                                </span>
+                                <span class="title">
+                                    {{child.title}}
+                                </span>
+                            </div>
+                        </a>
+                    </span>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </mat-nav-list>
+</div>

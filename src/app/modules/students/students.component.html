@@ -1,0 +1,160 @@
+<div>
+
+	<div
+		class="student-container"
+		[ngClass]="{'grade-1': student.grade == 1,
+					'grade-2': student.grade == 2,
+					'grade-3': student.grade == 3,
+					'grade-4': student.grade == 4,
+					'grade-5': student.grade == 5
+					}"
+		fxLayout="row"
+		fxLayout.lt-md="column"
+	>
+		<div class="image-container" fxFlex="10">
+			<img src="/assets/images/{{student.image}}.jpg">
+		</div>
+		<div fxFlex="30" class="border info-container" fxLayout="column" fxLayoutAlign="space-between">
+			<div class="name">
+				{{ student.name }} {{ student.lastName }}
+			</div>
+			<div class="grade" fxLayout="row">
+				<div>
+					Grade &nbsp;
+				</div>
+				<div>
+					{{ student.grade }}
+				</div>
+			</div>
+		</div>
+		<div fxFlex="30" class="border info-container" fxLayout="column" fxLayoutAlign="space-between">
+			<div class="sub-heading" fxLayout="row">
+				<div>
+					Major &nbsp;: &nbsp;
+				</div>
+				<div>
+					{{ student.major }}
+				</div>
+			</div>
+			<div class="sub-heading" fxLayout="row">
+				<div>
+					Assignments &nbsp;: &nbsp;
+				</div>
+				<div>
+					{{ student.assignments.length }}
+				</div>
+			</div>
+			<div class="sub-heading" fxLayout="row">
+				<div>
+					Average Score &nbsp;: &nbsp;
+				</div>
+				<div>
+					{{ student.avgScore }}
+				</div>
+			</div>
+		</div>
+		<div fxFlex="30" class="info-container" fxLayout="column" fxLayoutAlign="space-between">
+			<div class="sub-heading" fxLayout="row">
+				<div>
+					Student ID &nbsp;: &nbsp;
+				</div>
+				<div>
+					{{ student.studentId }}
+				</div>
+			</div>
+			<div class="sub-heading" fxLayout="row">
+				<div>
+					Enrollment No. &nbsp;: &nbsp;
+				</div>
+				<div>
+					{{ student.enrollmentNo }}
+				</div>
+			</div>
+			<div class="sub-heading" fxLayout="row">
+				<div>
+					Gender &nbsp;: &nbsp;
+				</div>
+				<div>
+					{{ student.gender }}
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div fxLayout="row" fxLayoutAlign="space-between">
+		<div class="title">
+			Assignments
+		</div>
+		<div fxLayout="row">
+			<mat-icon class="pr-10 icons border-right">
+				search
+			</mat-icon>
+			<mat-icon class="material-icons-outlined icons pr-10 pl-10 border-right">
+				filter_alt
+			</mat-icon>
+			<mat-icon class="pl-10 icons">
+				swap_vert
+			</mat-icon>
+		</div>
+	</div>
+
+	<div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="35px grid">
+		<div *ngFor="let assignment of student.assignments">
+			<div class="user-card">
+				<div class="widget">
+					<div class="widget-header">
+						{{ assignment.assignmentName }}
+					</div>
+					<div class="widget-body text-center">
+						<div class="text-box  btm-border">
+							<div id="left" class="text-muted">Lesson Name
+								<div class="text pt-1">
+									{{ assignment.lessonName }}
+								</div>
+							</div>
+							<div id="right" class="text-muted">Completed On
+								<div class="text pt-1">
+									{{assignment.completionDt}}
+								</div>
+							</div>
+						</div>
+						<div class="text-box  btm-border">
+							<div id="left" class="text-muted">Start Date
+								<div class="text pt-1">
+									{{assignment.assignmentStartDt}}
+								</div>
+							</div>
+							<div id="right" class="text-muted">End Date
+								<div class="text pt-1">
+									{{ assignment.assignmentEndDt }}
+								</div>
+							</div>
+						</div>
+
+						<div class="text-box btm-border">
+							<div id="left" class="text-muted">Score: &nbsp;<span
+									class="text">{{ assignment.score }}</span></div>
+							<div id="right" class="text-muted">Attempts: &nbsp;<span
+									class="text">{{ assignment.attempts }}</span></div>
+						</div>
+						<div class="text-box">
+							<div id="left" class="text-muted">Class: &nbsp;<span
+									class="text">{{ assignment.className }}</span></div>
+							<div id="right" class="text-muted">Weightage: &nbsp;<span
+									class="text">{{ assignment.assignmentWeightage }}</span></div>
+						</div>
+						<!-- <div class="text-box">
+                        <div id="left" class="text-muted">Name: &nbsp;<span class="text">{{ assignment.lessonName }}</span></div>
+                        <div id="right" class="text-muted">Id: &nbsp;<span class="text">{{ assignment.assignmentId }}</span></div>
+                    	</div> -->
+					</div>
+				</div>
+				<div fxLayout="row" fxLayoutAlign="space-around center">
+					<mat-icon class="linked-icon material-icons-outlined desc-icon">description</mat-icon>
+					<mat-icon class="linked-icon material-icons-outlined">visibility</mat-icon>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
